@@ -1,0 +1,19 @@
+{
+    "name": "stadline/mail-mandrill-bundle",
+    "description": "Provide easy facade to use MailMandrill API",
+    "require": {
+        "hipaway-travel/mandrill-bundle": "~1.0"
+    },
+    "authors": [
+        {
+            "name": "Fabien Rondeau ",
+            "email": "fabien.rondeau@stadline.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-0": { "Stadline\\MailMandrillBundle": "" }
+    },
+
+    "target-dir": "Stadline/MailMandrillBundle"
+}

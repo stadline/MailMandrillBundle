@@ -1,0 +1,7 @@
+services:   
+    stadline_mail_mandrill.mail_manager:
+        class: Stadline\MailMandrillBundle\Manager\MailManager
+        arguments:
+          - @logger
+        calls:
+          - [ setMandrillDispatcher, [ @hip_mandrill.dispatcher ] ]
