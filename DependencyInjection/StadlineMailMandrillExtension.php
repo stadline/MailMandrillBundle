@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class StadlineWSSESecurityExtension extends Extension
+class StadlineMailMandrillExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -24,7 +24,5 @@ class StadlineWSSESecurityExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
-
-        $container->setParameter('stadline_wsse_security.security_enabled',      $config['security_enabled']);
     }
 }

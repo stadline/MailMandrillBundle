@@ -8,6 +8,7 @@ use Hip\MandrillBundle\Message;
 use Stadline\MailMandrillBundle\Exception\MailException;
 use Stadline\MailMandrillBundle\Mail\MandrillMailInterface;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\Routing\Router;
 use Symfony\Component\Translation\TranslatorInterface;
 
@@ -68,9 +69,15 @@ class MailManager
         
     }
     
-    public function sendRawEmail($addresses, $html){
+    public function sendRawEmail($addresses, $html, $message = null){
 
-        $message = new Message();
+        if($message == null) {
+            $message = new Message();
+        }
+        if(!$message instanceof Message) {
+            throw new Exception('Message need to be an instance of Hip\MandrillBundle\Message');
+        }
+
         $message->setHtml($html);
         
         $this->prepareAddresses($addresses, $message);
@@ -95,7 +102,7 @@ class MailManager
     private function prepareAddresses($addresses, Message $message) 
     {
          //Check the Mail class
-        if(!array_key_exists('to', $addresses)) {
+        if(!isset($addresses['to'])) {
             throw new MailException('You need to provide at least one destinatary.');
         }
         
@@ -107,12 +114,12 @@ class MailManager
             $message->addTo($email);
         }
 
-        if(key_exists('cc', $addresses)) {
+        if(isset($addresses['cc'])) {
             $message->setBccAddress($addresses['cc']);
         }
-        
+
         //Set Reply-To
-        if(array_key_exists('Reply-To', $addresses)) {
+        if(isset($addresses['Reply-To'])) {
            $message->addHeader('Reply-To', $addresses['Reply-To']);
         }
         
