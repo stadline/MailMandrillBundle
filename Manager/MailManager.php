@@ -52,6 +52,7 @@ class MailManager
         $mail = new $class();
 
         $message = new Message();
+        $message->setMergeLanguage('handlebars');
         
         $this->prepareAddresses($addresses, $message);
         
