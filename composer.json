@@ -14,12 +14,5 @@
     "autoload": {
         "psr-0": { "Stadline\\MailMandrillBundle": "" }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/clementtalleu/MandrillBundle.git"
-        }
-    ],
-
     "target-dir": "Stadline/MailMandrillBundle"
 }
