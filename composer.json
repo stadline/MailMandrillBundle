@@ -2,7 +2,7 @@
     "name": "stadline/mail-mandrill-bundle",
     "description": "Provide easy facade to use MailMandrill API",
     "require": {
-        "hipaway-travel/mandrill-bundle": "dev-master as 1.0-dev"
+        "hipaway-travel/mandrill-bundle": "dev-master"
     },
     "authors": [
         {
@@ -17,7 +17,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/clementtalleu/MandrillBundle.git"
+            "url": "https://github.com/thomasglachant/HipMandrillBundle"
         }
     ],
 
